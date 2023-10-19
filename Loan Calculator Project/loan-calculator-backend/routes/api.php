@@ -28,7 +28,5 @@ Route::middleware('auth:sanctum')->group(function (){
 
     Route::post('logout',[AuthController::class,'logout']);
 
-    Route::apiResource('loans', LoanController::class);
-
     Route::post('/loan-calculator', [LoanController::class,'computeInterest']);
 });
