@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Calculator</title>
+    <link href="assets/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="assets/js/datatables/datatables.min.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg"  style="background-color: #e3f2fd;">
+    <div class="container">
+        <a class="navbar-brand home" href="#">Loan Calculator</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active home" aria-current="page"
+                       href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link visually-hidden" href="#" id="dashboard">Dashboard</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="register">
+                            Create account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link visually-hidden" href="#" id="user">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link visually-hidden" href="#" id="logout">
+                            logout</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container mt-1">
+    <div class="row" id="welcome-container">
+        <div class="col-12">
+            <h1>Welcome to Loan application calculator</h1>
+        </div>
+    </div>
+
+    <div class="row visually-hidden" id="register-container">
+        <div class="col-4 offset-4">
+            <div class="card">
+                <div class="card-header">
+                    Create an account
+                </div>
+                <div class="card-body">
+                    <form action="" id="registerForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">
+                                Name
+                            </label>
+                            <input type="text" class="form-control" id="name"
+                                   placeholder="john Doe">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                Email address
+                            </label>
+                            <input type="email" class="form-control" id="email"
+                                   placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password
+                            </label>
+                            <input type="password" id="password"
+                                   class="form-control" aria-describedby="passwordHelpBlock">
+                            <div id="passwordHelpBlock" class="form-text">
+                                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-info"
+                                id="registerBtn">
+                            Create account
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row visually-hidden" id="login-container">
+        <div class="col-4 offset-4">
+            <div class="card">
+                <div class="card-header">
+                    Log in with your Email and Password
+                </div>
+                <div class="card-body">
+                    <form action="" id="loginForm">
+                        <div class="mb-3">
+                            <label for="lemail" class="form-label">
+                                Email address
+                            </label>
+                            <input type="email" class="form-control" id="lemail"
+                                   placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lpassword" class="form-label">Password
+                            </label>
+                            <input type="password" id="lpassword"
+                                   class="form-control" aria-describedby="passwordHelpBlock">
+                        </div>
+                        <button type="button" class="btn btn-info"
+                                id="loginBtn">
+                            Log in
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row visually-hidden" id="dashboard-container">
+        <div class="col-12">
+           <h4>Welcome to your Loan calculator dashboard</h4>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>Fill the details below to compare the Rate
+                                between Bank A and Bank B</p>
+                            <form action="" id="interestForm">
+                                <div class="row mb-2">
+                                    <div class="col-3">
+                                        <div class="">
+                                            <label for="amount_to_amount"
+                                                   class="form-label">
+                                                Amount to Borrow (kshs)
+                                            </label>
+                                            <input type="number" class="form-control"
+                                                   id="amount_to_amount">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="">
+                                            <label for="payment_frequency"
+                                                   class="form-label">
+                                                Payment Frequency
+                                            </label>
+                                            <select class="form-select"
+                                                    aria-label="Default select example" id="payment_frequency">
+                                                <option selected>Select payment
+                                                    frequency</option>
+                                                <option value="annually">Annually
+                                                </option>
+                                                <option value="quarterly">Quarterly
+                                                </option>
+                                                <option value="monthly">Monthly</option>
+                                                <option value="every 6 months">Every 6 months</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="">
+                                            <label for="loan_period"
+                                                   class="form-label">
+                                                Loan period (in years)
+                                            </label>
+                                            <input type="number" class="form-control"
+                                                   id="loan_period">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="">
+                                            <label for="start_date"
+                                                   class="form-label">
+                                                Start date
+                                            </label>
+                                            <input type="date" class="form-control"
+                                                   id="start_date">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="">
+                                            <label for="interest_type"
+                                                   class="form-label">
+                                                Interest type
+                                            </label>
+                                            <select class="form-select"
+                                                    aria-label="Default select example" id="interest_type">
+                                                <option selected>
+                                                    Select interest type
+                                                </option>
+                                                <option value="Flat rate">Flat Rate
+                                                </option>
+                                                <option
+                                                        value="Reducing balance">
+                                                    Reducing Balance
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="mt-4">
+                                            <button type="button"
+                                                    class="btn btn-primary mt-1"
+                                                    id="computeInterestBtn">
+                                                Calculate
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="result-container" class="visually-hidden">
+                <div class="row">
+                    <div class="col-6">
+                        <div id="bankAHeading">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="bankBheading">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12">
+                        <div class="float-end">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                    id="generatePDF">
+                                Download
+                            </button>
+                            <button type="button" class="btn btn-info btn-sm">email</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mb-3" id="installments">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="bankAcontainer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="bankBcontainer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-3">
+                    <div class="card">
+                        <div class="card-body" id="bankFooter">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="assets/js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.js"></script>
+<script src="https://unpkg.com/dompurify@1.0.11/dist/purify.min.js"></script>
+
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/datatables/datatables.min.js"></script>
+<script src="assets/js/loan.js"></script>
+
+</body>
+</html>
