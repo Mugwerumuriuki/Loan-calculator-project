@@ -125,10 +125,6 @@ $(document).ready(function () {
         $.ajax({
             method: "post",
             url: "http://localhost:8000/api/register",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            dataType: 'json',
             data: data,
             success: function (response) {
 
