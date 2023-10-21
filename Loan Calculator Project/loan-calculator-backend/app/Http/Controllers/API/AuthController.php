@@ -46,6 +46,9 @@ class AuthController extends Controller
 
             $result['user'] = Auth::user();
         }
+        else {
+            return response()->json(['invalid' => 'Invalid credentials. Please try again.'], 422);
+        }
 
         return response()->json($result,200);
     }

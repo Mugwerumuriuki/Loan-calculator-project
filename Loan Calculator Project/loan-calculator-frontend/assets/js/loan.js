@@ -183,6 +183,10 @@ $(document).ready(function () {
 
       $.ajax({
           method: 'post',
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Access-Control-Allow-Origin': '*'
+          },
           url: 'http://localhost:8000/api/login',
           data: data,
           cache: false,
@@ -228,8 +232,15 @@ $(document).ready(function () {
               $('#lemail').val('')
               $('#lpassword').val('')
           },
-          error: function (error) {
-              console.log(error)
+          error: function (data) {
+              if (data.status === 422) {
+                  console.log(data.responseJSON.invalid)
+                  if (data.responseJSON.invalid) {
+                      $('#loginError').html(data.responseJSON.invalid)
+                      $('#loginError').removeClass('visually-hidden')
+                      $('#lpassword').val('')
+                  }
+              }
           }
       })
   });
