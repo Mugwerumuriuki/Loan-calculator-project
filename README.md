@@ -6,7 +6,7 @@ The API backend was developed using laravel 10. To set-up the project, the follo
 1. PHP 8.1 or higher
 2. mariadb 5.6 or higher
 
-To start the backend API, following the procedure below;
+To start the backend API, follow the procedure below;
 1. Create a database named "loan_calculator"
 2. Open terminal within the API project root folder and then run the following commands to start the project;
 `php artisan migrate`
